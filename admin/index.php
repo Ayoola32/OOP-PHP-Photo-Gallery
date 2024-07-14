@@ -16,15 +16,12 @@
                         </h1>
 
                         <?php
-                        $sql = "SELECT * FROM users";
-                        $result = $database->query($sql);
-                        
-                        if ($result) {
-                            $user_found = mysqli_fetch_array($result);
-                            echo $user_found['username'];
-                        } else {
-                            echo "No user found.";
-                        }                        
+                        $user = new User();
+                        $result = $user->find_all_user();
+                        while ($row = mysqli_fetch_array($result)) {
+                            echo $row['username'];
+                        }
+                                               
                         ?>
 
                         

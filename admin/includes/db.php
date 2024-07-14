@@ -48,7 +48,7 @@ class Database {
 
 
 
-
+// End of methods
 }
 
 $database = new Database();
