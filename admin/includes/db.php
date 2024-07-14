@@ -21,7 +21,8 @@ class Database {
 
 
     public function query($sql){
-        $result = mysqli_query($sql, $this->connection);
+        $result = mysqli_query($this->connection, $sql);
+        $this->confirm_query($result);
         return $result;
     }
 
@@ -32,7 +33,7 @@ class Database {
     }
 
     public function escape_string($string){
-        $escaped_string = mysqli_real_escape_string($string, $this->connection);
+        $escaped_string = mysqli_real_escape_string($this->connection, $string);
         return $escaped_string;
     }
 
