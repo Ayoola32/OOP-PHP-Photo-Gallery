@@ -16,8 +16,8 @@
                         </h1>
 
                         <?php
-                        $user = new User();
-                        $result = $user->find_all_user();
+                        // $user = new User();
+                        $result = User::find_all_user();
                         while ($row = mysqli_fetch_array($result)) {
                             echo $row['username'];
                         }

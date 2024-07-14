@@ -2,7 +2,7 @@
 
 class User{
 
-    public function find_all_user(){
+    public static function find_all_user(){
         global $database;
         
         $sql = "SELECT * FROM users";
