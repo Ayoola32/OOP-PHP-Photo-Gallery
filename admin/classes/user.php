@@ -3,20 +3,21 @@
 class User{
 
     public static function find_all_user(){
-        global $database;
-        
-        $sql = "SELECT * FROM users";
-        $result = $database->query($sql);
-        return $result;
+
+        return self::find_query("SELECT * FROM users");
     }
 
     public static function find_user_id($user_id){
-        global $database;
-
-        $sql = "SELECT * FROM users WHERE user_id = '{$user_id}' LIMIT 1";
-        $result = $database->query($sql);
+        
+        $result = self::find_query("SELECT * FROM users WHERE user_id = '{$user_id}' LIMIT 1");
         $found_user = mysqli_fetch_array($result);
         return $found_user;
+    }
+
+    public static function find_query($sql){
+        global $database;
+        $result = $database->query($sql);
+        return $result;
     }
 
 
