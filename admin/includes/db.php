@@ -17,6 +17,35 @@ class Database {
         }
        
     }
+
+
+
+    public function query($sql){
+        $result = mysqli_query($sql, $this->connection);
+        return $result;
+    }
+
+    private function confirm_query($result){
+        if (!$result) {
+            die("Query Failed" . mysqli_error($this->connection));
+        }
+    }
+
+    public function escape_string($string){
+        $escaped_string = mysqli_real_escape_string($string, $this->connection);
+        return $escaped_string;
+    }
+
+
+
+
+
+
+
+
+
+
+
 }
 
 $database = new Database();
