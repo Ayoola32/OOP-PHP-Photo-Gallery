@@ -53,6 +53,9 @@
                     <li class="">
                         <a href="upload.php"><i class="fa fa-fw fa-file"></i> Upload</a>
                     </li>
+                    <li class="">
+                        <a href="photos.php"><i class="fa fa-fw fa-image"></i> Photos</a>
+                    </li>
                     <li>
                         <a href="comments.php"><i class="fa fa-fw fa-dashboard"></i> Comments</a>
                     </li>
