@@ -17,10 +17,8 @@
 
                         <?php
                         // $user = new User();
-                        $result = User::find_all_user();
-                        while ($row = mysqli_fetch_array($result)) {
-                            echo $row['username'];
-                        }
+                        $user_byId_result = User::find_user_id(1);
+                        echo $user_byId_result['username'];
                                                
                         ?>
 
