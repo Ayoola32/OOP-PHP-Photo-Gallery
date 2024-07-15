@@ -26,7 +26,10 @@
 
                         // Find a specific user by ID
                         $found_user = User::find_user_id(1);
-                        echo $found_user->user_email
+                        echo $found_user->user_email;
+
+                        // just to confirm the autoload function if working
+                        $pic = new Picture();
 
 
                         
