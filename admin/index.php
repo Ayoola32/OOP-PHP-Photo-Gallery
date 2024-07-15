@@ -16,10 +16,20 @@
                         </h1>
 
                         <?php
-                        // $user = new User();
-                        $user_byId_result = User::find_user_id(1);
-                        echo $user_byId_result['username'];
-                                               
+                        // Find all users
+                        $all_users = User::find_all_user();
+
+                        // Loop through all users and display their usernames
+                        foreach ($all_users as $user) {
+                            echo $user->username . "<br>";
+                        }
+
+                        // Find a specific user by ID
+                        $found_user = User::find_user_id(1);
+                        echo $found_user->user_email
+
+
+                        
                         ?>
 
                         
