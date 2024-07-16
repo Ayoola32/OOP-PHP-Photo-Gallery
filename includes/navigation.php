@@ -27,9 +27,17 @@
 
                 </ul>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="admin">Admin</a></li>
-                </ul>
+                <!-- Dont display admin if not logged in -->
+                <?php if (isset($_SESSION['user_role'])): ?>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="admin">Admin</a></li>
+                    </ul>
+                    <?php else: ?>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="./login.php">Signin</a></li>
+                            <li><a href="./registration.php">Signup</a></li>
+                        </ul>
+                    <?php endif; ?>
             </div>
             <!-- /.navbar-collapse -->
         </div>
