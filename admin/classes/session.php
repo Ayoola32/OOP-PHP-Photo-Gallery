@@ -6,7 +6,7 @@ class Session{
     public  $user_id;
 
 
-    
+
     function __construct(){
         session_start();
         $this->check_the_login();
@@ -14,7 +14,7 @@ class Session{
 
 
     public function is_signed_in(){
-        return $this->$signed_in;
+        return $this->signed_in;
     }
 
 
@@ -29,7 +29,7 @@ class Session{
     public function logout($user){
         unset($_SESSION['user_id']);
         unset($this->user_id);
-        $this->$signed_in = false;
+        $this->signed_in = false;
     }
 
     
