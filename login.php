@@ -1,6 +1,35 @@
 <?php  include "includes/header.php"; ?>
 <?php require_once "admin/classes/init.php"; ?>
 
+<?php
+if ($session->is_signed_in()) {
+	redirect("admin/index.php");
+}
+
+if (isset($_POST['submit'])) {
+	$username = trim($_POST['username']);
+	$password = trim($_POST['password']);
+
+
+	// Method to check database user
+	if ($user_found) {
+		$session->login($user_found);
+		redirect("admin/index.php");
+	}else {
+		$the_message = "Your username or password are incorrect";
+	}
+
+
+}else {
+	$username = "";
+	$password = "";
+}
+
+
+?>
+
+
+
 <!-- Navigation -->
 
 <?php  include "includes/navigation.php"; ?>
