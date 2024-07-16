@@ -11,6 +11,12 @@ function my_autoload($class) {
     }
 }
 
+
+function redirect($location){
+    header("Location: {$location}");
+}
+
+
 // Register the autoload function
 spl_autoload_register('my_autoload');
 ?>
