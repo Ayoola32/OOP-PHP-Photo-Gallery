@@ -37,6 +37,25 @@ class User{
     }
 
 
+    // method used to verify user in login page
+    public static function verify_user($username, $password){
+        global $database;
+
+        $username = $database->escape_string($username);
+        $password = $database->escape_string($password);
+
+        $sql = "SELECT * FROM users WHERE ";
+        $sql .= "username = '{$username}' AND ";
+        $sql .= "password = '{$password}' ";
+        $sql .= "LIMIT 1";
+
+
+        $result_array = self::find_query($sql);
+        return !empty($result_array) ? array_shift($result_array) : false;
+    }
+
+
+
     // instantiation of the properties also called variables
     public static function instantiate($record){
         $obj = new self;
@@ -59,12 +78,18 @@ class User{
 
     }
 
-    
+
     // method to find the attribute
     private function has_attribute($attribute){
         $obj_properties = get_object_vars($this);
 
         return array_key_exists($attribute, $obj_properties);
+    }
+
+
+    public function escape_string($string){
+        $escaped_string = mysqli_real_escape_string($this->connection, $string);
+        return $escaped_string;
     }
 
 
