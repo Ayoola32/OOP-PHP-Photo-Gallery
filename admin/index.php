@@ -29,7 +29,7 @@
                         echo $found_user->user_email;
 
                         // just to confirm the autoload function if working
-                        $pic = new Picture();
+                        // $pic = new Picture();
 
 
                         
