@@ -12,6 +12,8 @@ if (isset($_POST['submit'])) {
 
 
 	// Method to check database user
+	$user_found = User::verify_user($username, $password);
+
 	if ($user_found) {
 		$session->login($user_found);
 		redirect("admin/index.php");
@@ -48,7 +50,7 @@ if (isset($_POST['submit'])) {
 							<h2 class="text-center">Login</h2>
 
 							<div class="panel-body">
-								<form action="./includes/login.php" id="login-form" role="form" autocomplete="off" class="form" method="post">
+								<form action="" id="login-form" role="form" autocomplete="off" class="form" method="post">
 
 									<div class="form-group">
 										<div class="input-group">
