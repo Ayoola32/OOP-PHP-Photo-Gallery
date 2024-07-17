@@ -18,11 +18,12 @@ if (isset($_POST['submit'])) {
 		$session->login($user_found);
 		redirect("admin/index.php");
 	}else {
-		$the_message = "Your username or password are incorrect";
+		$the_message = "Username or Password are incorrect";
 	}
 
 
 }else {
+	$the_message = "";
 	$username = "";
 	$password = "";
 }
@@ -50,20 +51,21 @@ if (isset($_POST['submit'])) {
 							<h2 class="text-center">Login</h2>
 
 							<div class="panel-body">
+								<h4 class="bg-danger"><?php echo $the_message;?></h4>
 								<form action="" id="login-form" role="form" autocomplete="off" class="form" method="post">
 
 									<div class="form-group">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-user color-blue"></i></span>
 
-											<input name="username" type="text" class="form-control" placeholder="Enter Username">
+											<input name="username" type="text" class="form-control" value="<?php echo htmlentities($username);?>" placeholder="Enter Username">
 										</div>
 									</div>
 
 									<div class="form-group">
 										<div class="input-group">
 											<span class="input-group-addon"><i class="glyphicon glyphicon-lock color-blue"></i></span>
-											<input name="password" type="password" class="form-control" placeholder="Enter Password">
+											<input name="password" type="password" class="form-control" value="<?php echo htmlentities($password);?>" placeholder="Enter Password">
 										</div>
 									</div>
 
