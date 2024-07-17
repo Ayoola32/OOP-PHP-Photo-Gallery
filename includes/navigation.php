@@ -28,7 +28,7 @@
                 </ul>
 
                 <!-- Dont display admin if not logged in -->
-                <?php if (isset($_SESSION['user_role'])): ?>
+                <?php if ($session->is_signed_in()): ?>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="admin">Admin</a></li>
                     </ul>
