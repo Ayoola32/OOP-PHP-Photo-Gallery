@@ -15,6 +15,11 @@
 </div>
 
 <div class="well">
+    <?php if ($session->is_signed_in()): ?>
+        <h3>Logged in as <?php echo 'Username';?> </h3>
+        <a href="./logout.php" class="btn btn-primary">Logout</a>
+    <?php else: ?>
+
         <h4>Login</h4>
         <form action="./login.php" method ="post">
             <div class="form-group">
@@ -35,6 +40,8 @@
             </div>
             
         </form> <!--Login form -->
+
+    <?php endif; ?>
 </div>
 
 
