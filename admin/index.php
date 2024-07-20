@@ -17,14 +17,25 @@
 
                         <?php
                         // INSERTING INTO THE DATABASE STATICALLY;
-                            $user = new User();
-                            $user->username = "Abusidiq";
-                            $user->password = "2262";
-                            $user->first_name = "Abubakar";
-                            $user->last_name = "Abdul";
-                            $user->user_email = "abubakar@example.com";
-
-                            $user->create();
+                            // $user = new User();
+                            // $user->username = "Abusidiq";
+                            // $user->password = "2262";
+                            // $user->first_name = "Abubakar";
+                            // $user->last_name = "Abdul";
+                            // $user->user_email = "abubakar@example.com";
+                            
+                            // $user->create();
+                            
+                            // UPDATE USER STATICALLY;
+                            $user = User::find_user_id(6);
+                            if ($user) {
+                                $user->username = "Twilight";
+                                $user->last_name = "Tawakalit";
+                                $user->update();
+                                echo "User updated successfully.";
+                            } else {
+                                echo "User not found.";
+                            }
 
 
                         

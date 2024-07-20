@@ -19,9 +19,8 @@ class User{
     // method use to find a single user by its user_id
     public static function find_user_id($user_id) {
         $result = self::find_query("SELECT * FROM users WHERE user_id = '{$user_id}' LIMIT 1");
-        return !empty($result) ? array_shift($result) : null;  // tenaryr opertaor irreplacement of if statment 
-
-    }
+        return !empty($result) ? array_shift($result) : null;  // Ternary operator in replacement of if statement
+    }    
 
 
     // method used when writing a query
@@ -35,6 +34,7 @@ class User{
         }
         return $obj_array;
     }
+
 
 
     // method used to verify user in login page
@@ -125,6 +125,23 @@ class User{
     }
 
 
+    // UPDATE
+    public function update(){
+        global $database;
+        $sql  = "UPDATE users SET ";
+        $sql .= "username= '" . $database->escape_string($this->username) . "', ";
+        $sql .= "password= '" . $database->escape_string($this->password) . "', ";
+        $sql .= "first_name= '" . $database->escape_string($this->first_name) . "', ";
+        $sql .= "last_name= '" . $database->escape_string($this->last_name) . "', ";
+        $sql .= "user_email= '" . $database->escape_string($this->user_email) . "' ";
+        $sql .= " WHERE user_id = " . $database->escape_string($this->user_id);
+
+        $database->query($sql);
+        return (mysqli_affected_rows($database->connection) == 1) ? true : false;
+
+
+
+    }
 
 
 
