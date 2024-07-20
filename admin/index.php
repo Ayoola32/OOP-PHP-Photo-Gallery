@@ -28,9 +28,9 @@
                             
 
                             // UPDATE USER STATICALLY;
-                            // $user = User::find_user_id(6);
+                            // $user = User::find_user_id(31);
                             // if ($user) {
-                            //     $user->username = "Twilight";
+                            //     $user->username = "Twilight02";
                             //     $user->last_name = "Tawakalit";
                             //     $user->update();
                             //     echo "User updated successfully.";
@@ -40,7 +40,7 @@
 
 
                             //DELETE USER
-                            $user = User::find_user_id(3);
+                            $user = User::find_user_id(13);
                             if ($user) {
                                 $user->delete();
                                 echo "User Deleted Successfully.";

@@ -1,6 +1,7 @@
 <?php
 
 class User{
+    private static $db_table = "users";
     public $user_id;
     public $username;
     public $password;
@@ -12,13 +13,13 @@ class User{
     // method to find all users
     public static function find_all_user(){
 
-        return self::find_query("SELECT * FROM users");
+        return self::find_query("SELECT * FROM self::$db_table");
     }
 
 
     // method use to find a single user by its user_id
     public static function find_user_id($user_id) {
-        $result = self::find_query("SELECT * FROM users WHERE user_id = '{$user_id}' LIMIT 1");
+        $result = self::find_query("SELECT * FROM " . self::$db_table . " WHERE user_id = '{$user_id}' LIMIT 1");
         return !empty($result) ? array_shift($result) : null;  // Ternary operator in replacement of if statement
     }    
 
@@ -44,7 +45,7 @@ class User{
         $username = $database->escape_string($username);
         $password = $database->escape_string($password);
 
-        $sql = "SELECT * FROM users WHERE ";
+        $sql = "SELECT * FROM " . self::$db_table . " WHERE ";
         $sql .= "username = '{$username}' AND ";
         $sql .= "password = '{$password}' ";
         $sql .= "LIMIT 1";
@@ -107,7 +108,7 @@ class User{
     // CREATE
     public function create(){
         global $database;
-        $sql = "INSERT INTO users (username, `password`, first_name, last_name, user_email) ";
+        $sql = "INSERT INTO " . self::$db_table . " (username, `password`, first_name, last_name, user_email) ";
         $sql .= "VALUES ('";
         $sql .= $database->escape_string($this->username) . "', '";
         $sql .= $database->escape_string($this->password) . "', '";
@@ -128,7 +129,7 @@ class User{
     // UPDATE
     public function update(){
         global $database;
-        $sql  = "UPDATE users SET ";
+        $sql  = "UPDATE " . self::$db_table . " SET ";
         $sql .= "username= '" . $database->escape_string($this->username) . "', ";
         $sql .= "password= '" . $database->escape_string($this->password) . "', ";
         $sql .= "first_name= '" . $database->escape_string($this->first_name) . "', ";
@@ -147,7 +148,7 @@ class User{
     // DELETE
     public function delete(){
         global $database;
-        $sql = "DELETE FROM users ";
+        $sql = "DELETE FROM " . self::$db_table . " ";
         $sql .= "WHERE user_id = " . $database->escape_string($this->user_id);
         $sql .= " LIMIT 1";
         
