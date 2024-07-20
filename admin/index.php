@@ -26,13 +26,24 @@
                             
                             // $user->create();
                             
+
                             // UPDATE USER STATICALLY;
-                            $user = User::find_user_id(6);
+                            // $user = User::find_user_id(6);
+                            // if ($user) {
+                            //     $user->username = "Twilight";
+                            //     $user->last_name = "Tawakalit";
+                            //     $user->update();
+                            //     echo "User updated successfully.";
+                            // } else {
+                            //     echo "User not found.";
+                            // }
+
+
+                            //DELETE USER
+                            $user = User::find_user_id(3);
                             if ($user) {
-                                $user->username = "Twilight";
-                                $user->last_name = "Tawakalit";
-                                $user->update();
-                                echo "User updated successfully.";
+                                $user->delete();
+                                echo "User Deleted Successfully.";
                             } else {
                                 echo "User not found.";
                             }
