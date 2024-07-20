@@ -16,20 +16,15 @@
                         </h1>
 
                         <?php
-                        // Find all users
-                        $all_users = User::find_all_user();
+                        // INSERTING INTO THE DATABASE STATICALLY;
+                            $user = new User();
+                            $user->username = "Abusidiq";
+                            $user->password = "2262";
+                            $user->first_name = "Abubakar";
+                            $user->last_name = "Abdul";
+                            $user->user_email = "abubakar@example.com";
 
-                        // Loop through all users and display their usernames
-                        foreach ($all_users as $user) {
-                            echo $user->username . "<br>";
-                        }
-
-                        // Find a specific user by ID
-                        $found_user = User::find_user_id(1);
-                        echo $found_user->user_email;
-
-                        // just to confirm the autoload function if working
-                        // $pic = new Picture();
+                            $user->create();
 
 
                         

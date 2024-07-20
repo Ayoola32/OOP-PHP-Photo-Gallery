@@ -87,16 +87,42 @@ class User{
     }
 
 
-    public function escape_string($string){
-        $escaped_string = mysqli_real_escape_string($this->connection, $string);
-        return $escaped_string;
+    // public function escape_string($string){
+    //     $escaped_string = mysqli_real_escape_string($this->connection, $string);
+    //     return $escaped_string;
+    // }
+
+
+
+
+
+
+
+
+    // // // // // //
+    // CRUD METHODS
+    // // // // // //
+
+
+    // CREATE
+    public function create(){
+        global $database;
+        $sql = "INSERT INTO users (username, `password`, first_name, last_name, user_email) ";
+        $sql .= "VALUES ('";
+        $sql .= $database->escape_string($this->username) . "', '";
+        $sql .= $database->escape_string($this->password) . "', '";
+        $sql .= $database->escape_string($this->first_name) . "', '";
+        $sql .= $database->escape_string($this->last_name) . "', '";
+        $sql .= $database->escape_string($this->user_email) . "')";
+
+        if ($database->query($sql)) {
+            $this->id = $database->the_insert_id();
+            return true;
+        } else {
+            return false;
+        }
+
     }
-
-
-
-
-
-
 
 
 
