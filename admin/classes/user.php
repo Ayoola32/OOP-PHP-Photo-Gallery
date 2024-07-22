@@ -14,7 +14,7 @@ class User{
     // method to find all users
     public static function find_all_user(){
 
-        return self::find_query("SELECT * FROM self::$db_table");
+        return self::find_query("SELECT * FROM " . self::$db_table);
     }
 
 
@@ -129,12 +129,21 @@ class User{
     // UPDATE
     public function update(){
         global $database;
+        $properties = $this->properties();
+        $properties_pairs = array();
+        foreach ($properties as $key => $value) {
+            $properties_pairs[] = "{$key}='{$value}'";
+        }
+
+
+
         $sql  = "UPDATE " . self::$db_table . " SET ";
-        $sql .= "username= '" . $database->escape_string($this->username) . "', ";
-        $sql .= "password= '" . $database->escape_string($this->password) . "', ";
-        $sql .= "first_name= '" . $database->escape_string($this->first_name) . "', ";
-        $sql .= "last_name= '" . $database->escape_string($this->last_name) . "', ";
-        $sql .= "user_email= '" . $database->escape_string($this->user_email) . "' ";
+        $sql .= implode(", ", $properties_pairs);
+        // $sql .= "username= '" . $database->escape_string($this->username) . "', ";
+        // $sql .= "password= '" . $database->escape_string($this->password) . "', ";
+        // $sql .= "first_name= '" . $database->escape_string($this->first_name) . "', ";
+        // $sql .= "last_name= '" . $database->escape_string($this->last_name) . "', ";
+        // $sql .= "user_email= '" . $database->escape_string($this->user_email) . "' ";
         $sql .= " WHERE user_id = " . $database->escape_string($this->user_id);
 
         $database->query($sql);

@@ -17,26 +17,26 @@
 
                         <?php
                         // INSERTING INTO THE DATABASE STATICALLY;
-                            $user = new User();
-                            $user->username = "Abusidiq32";
-                            $user->password = "2262";
-                            $user->first_name = "Abubakar";
-                            $user->last_name = "Abdul";
-                            $user->user_email = "abubakar@example.com";
+                            // $user = new User();
+                            // $user->username = "Abusidiq32";
+                            // $user->password = "2262";
+                            // $user->first_name = "Abubakar";
+                            // $user->last_name = "Abdul";
+                            // $user->user_email = "abubakar@example.com";
                             
-                            $user->create();
+                            // $user->create();
                             
 
                             // UPDATE USER STATICALLY;
-                            // $user = User::find_user_id(31);
-                            // if ($user) {
-                            //     $user->username = "Twilight02";
-                            //     $user->last_name = "Tawakalit";
-                            //     $user->update();
-                            //     echo "User updated successfully.";
-                            // } else {
-                            //     echo "User not found.";
-                            // }
+                            $user = User::find_user_id(15);
+                            if ($user) {
+                                $user->username = "Twilight0202";
+                                $user->last_name = "Tawakalit0000";
+                                $user->update();
+                                echo "User updated successfully.";
+                            } else {
+                                echo "User not found.";
+                            }
 
 
                             //DELETE USER
