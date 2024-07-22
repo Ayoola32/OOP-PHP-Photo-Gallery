@@ -2,6 +2,7 @@
 
 class User{
     private static $db_table = "users";
+    private static $db_table_field = array('username', 'password', 'first_name', 'last_name', 'user_email');
     public $user_id;
     public $username;
     public $password;
@@ -61,13 +62,6 @@ class User{
     public static function instantiate($record){
         $obj = new self;
 
-        // $obj->user_id = $found_user['user_id'];
-        // $obj->username = $found_user['username'];
-        // $obj->password = $found_user['password'];
-        // $obj->first_name = $found_user['first_name'];
-        // $obj->last_name = $found_user['last_name'];
-        // $obj->user_email = $found_user['user_email'];
-
         foreach ($record as $attribute => $value) {
 
             if ($obj->has_attribute($attribute)) {
@@ -88,10 +82,19 @@ class User{
     }
 
 
-    // public function escape_string($string){
-    //     $escaped_string = mysqli_real_escape_string($this->connection, $string);
-    //     return $escaped_string;
-    // }
+    // Properties of the table
+    protected function properties(){
+
+        $properties = array();
+        foreach (self::$db_table_field as $db_field) {
+            if (property_exists($this, $db_field)) {
+                $properties[$db_field] = $this->$db_field;
+            }
+        }
+        
+
+        return $properties;
+    }
 
 
 
@@ -108,13 +111,10 @@ class User{
     // CREATE
     public function create(){
         global $database;
-        $sql = "INSERT INTO " . self::$db_table . " (username, `password`, first_name, last_name, user_email) ";
-        $sql .= "VALUES ('";
-        $sql .= $database->escape_string($this->username) . "', '";
-        $sql .= $database->escape_string($this->password) . "', '";
-        $sql .= $database->escape_string($this->first_name) . "', '";
-        $sql .= $database->escape_string($this->last_name) . "', '";
-        $sql .= $database->escape_string($this->user_email) . "')";
+        $properties = $this->properties();
+
+        $sql = "INSERT INTO " . self::$db_table . "(" . implode(",", array_keys($properties)) . ")";
+        $sql .= "VALUES ('" . implode("','", array_values($properties)) . "')";
 
         if ($database->query($sql)) {
             $this->id = $database->the_insert_id();
