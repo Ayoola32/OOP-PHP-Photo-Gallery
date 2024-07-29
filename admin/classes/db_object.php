@@ -5,13 +5,13 @@ class Db_object{
     // method to find all users
     public static function find_all_user(){
 
-        return self::find_query("SELECT * FROM " . self::$db_table);
+        return static::find_query("SELECT * FROM " . static::$db_table);
     }
 
 
     // method use to find a single user by its user_id
     public static function find_user_id($user_id) {
-        $result = self::find_query("SELECT * FROM " . self::$db_table . " WHERE user_id = '{$user_id}' LIMIT 1");
+        $result = static::find_query("SELECT * FROM " . static::$db_table . " WHERE user_id = '{$user_id}' LIMIT 1");
         return !empty($result) ? array_shift($result) : null;  // Ternary operator in replacement of if statement
     } 
 
@@ -23,15 +23,17 @@ class Db_object{
         $obj_array = array();
 
         while ($row = mysqli_fetch_array($result)) {
-            $obj_array[] = self::instantiate($row);
+            $obj_array[] = static::instantiate($row);
         }
         return $obj_array;
     }
 
 
+    
     // instantiation of the properties also called variables
     public static function instantiate($record){
-        $obj = new self;
+        $calling_class = get_called_class();
+        $obj = new $calling_class;
 
         foreach ($record as $attribute => $value) {
 
