@@ -54,16 +54,30 @@
                             // }
 
 
-                            // UPDATE USER STATICALLY;
-                            $photos = Photo::find_all();
-                            if ($photos) {
-                                foreach ($photos as $photo) {
-                                   echo $photo->filename;
-                                }
-                            } else {
-                                echo "No user found.";
-                            }
+                            // SEARCH FOR ALL PHOTO DETALS STATICALLY;
+                            // $photos = Photo::find_all();
+                            // if ($photos) {
+                            //     foreach ($photos as $photo) {
+                            //        echo $photo->filename;
+                            //     }
+                            // } else {
+                            //     echo "No record found.";
+                            // }
 
+                            
+                            // INSERTING INTO THE DATABASE STATICALLY;
+                            $photo = new Photo();
+                            $photo->title = "Convocation Image";
+                            $photo->description = "2024 Graduation";
+                            $photo->filename = "convo2.jpeg";
+                            $photo->type = "jpeg";
+                            $photo->size = "11";
+                            
+                            if ($photo->create()) {
+                                echo "Photo record created successfully.";
+                            } else {
+                                echo "Failed to create record.";
+                            };
 
                         
                         ?>
