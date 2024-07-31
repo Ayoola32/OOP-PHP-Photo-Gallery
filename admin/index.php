@@ -17,18 +17,18 @@
 
                         <?php
                         // INSERTING INTO THE DATABASE STATICALLY;
-                            $user = new User();
-                            $user->username = "Sidiqueeeeeeee";
-                            $user->password = "8899000";
-                            $user->first_name = "Ayodeji32";
-                            $user->last_name = "Sidique";
-                            $user->user_email = "a-sidiq@example.com";
+                            // $user = new User();
+                            // $user->username = "Sidiqueeeeeeee";
+                            // $user->password = "8899000";
+                            // $user->first_name = "Ayodeji32";
+                            // $user->last_name = "Sidique";
+                            // $user->user_email = "a-sidiq@example.com";
                             
-                            if ($user->create()) {
-                                echo "User created successfully.";
-                            } else {
-                                echo "Failed to create user.";
-                            };
+                            // if ($user->create()) {
+                            //     echo "User created successfully.";
+                            // } else {
+                            //     echo "Failed to create user.";
+                            // };
                             
 
                             // UPDATE USER STATICALLY;
@@ -52,6 +52,17 @@
                             // } else {
                             //     echo "User not found.";
                             // }
+
+
+                            // UPDATE USER STATICALLY;
+                            $photos = Photo::find_all();
+                            if ($photos) {
+                                foreach ($photos as $photo) {
+                                   echo $photo->filename;
+                                }
+                            } else {
+                                echo "No user found.";
+                            }
 
 
                         

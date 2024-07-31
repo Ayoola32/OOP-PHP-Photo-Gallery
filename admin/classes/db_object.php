@@ -3,7 +3,7 @@
 class Db_object{
     
     // method to find all users
-    public static function find_all_user(){
+    public static function find_all(){
 
         return static::find_query("SELECT * FROM " . static::$db_table);
     }
