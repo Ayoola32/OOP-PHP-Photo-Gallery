@@ -41,11 +41,29 @@ class Photo extends Db_object {
             $this->type = $file['type'];
             $this->size = $file['size'];
         }
+    }
+
+
+    public function save(){
+        if ($this->photo_id) {
+            $this->update();
+        }else {
+            if (!empty($this->errors)) {
+                return false;
+            }
+
+            if (empty($this->filename) || empty($this->tmp_path)) {
+                $this->errors[] = "The file was not available";
+                return false;
+            }
+
+            $target_path = SITE_ROOT . DS . 'admin' . DS . $this->upload_directory . DS . $this->filename;
 
 
 
 
-
+            $this->create();
+        }
     }
 
 
