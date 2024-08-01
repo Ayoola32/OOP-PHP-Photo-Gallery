@@ -30,10 +30,10 @@ class Photo extends Db_object {
     public function set_file($file){
 
         if (empty($file) || !$file || !is_array($file)) {
-            $this->error[] = "There was no file uploaded here";
+            $this->errors[] = "There was no file uploaded here";
             return false;
-        }elseif ($file['error'] != 0 ) {
-            $this->error[] = $this->upload_error[$file['error']];
+        }elseif ($file['errors'] != 0 ) {
+            $this->error[] = $this->upload_error[$file['errors']];
             return false;
         }else{
             $this->filename = basename($file['name']);
@@ -58,11 +58,22 @@ class Photo extends Db_object {
             }
 
             $target_path = SITE_ROOT . DS . 'admin' . DS . $this->upload_directory . DS . $this->filename;
+            
+            if (file_exists($target_path)) {
+                $this->errors[] = "The file {$this->filename} already exist";
+                return false;
+            }
 
-
-
-
-            $this->create();
+            if (move_uploaded_file($this->tmp_path, $target_path)) {
+                if ($this->create()) {
+                    unset($this->tmp_path);
+                    return true;
+                }
+            }else {
+                $this->errors[] = "The file directory probably does not have permission";
+                return false;
+            }
+            // $this->create();
         }
     }
 
