@@ -1,4 +1,5 @@
-<?php include "./admin/classes/init.php";?>
+<?php ob_start();?>
+<?php include "admin/classes/init.php";?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Abusidiq Blog Home - CMS</title>
+    <title>OOP Photo Gallery</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
