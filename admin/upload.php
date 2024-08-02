@@ -22,6 +22,25 @@
                                 <i class="fa fa-file"></i> Blank Page
                             </li>
                         </ol>
+
+                        <form action="" method="post" enctype="multipart/form-data">
+                            <h2>Add New Photo</h2>
+
+
+                            <div class="form-group">
+                                <label for="title">Photo Title</label>
+                                <input type="text" class="form-control" name="title">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="file_upload">Photo Upload</label>
+                                <input type="file" name="file_upload">
+                            </div>
+
+                            <div class="form-group">
+                                <input class= "btn btn-primary" type="submit" name="submit" value="Add Photo">
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <!-- /.row -->
