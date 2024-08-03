@@ -66,18 +66,18 @@
 
                             
                             // INSERTING INTO THE DATABASE STATICALLY;
-                            $photo = new Photo();
-                            $photo->title = "Convocation Image";
-                            $photo->description = "2024 Graduation";
-                            $photo->filename = "convo2.jpeg";
-                            $photo->type = "jpeg";
-                            $photo->size = "11";
+                            // $photo = new Photo();
+                            // $photo->title = "Convocation Image";
+                            // $photo->description = "2024 Graduation";
+                            // $photo->filename = "convo2.jpeg";
+                            // $photo->type = "jpeg";
+                            // $photo->size = "11";
                             
-                            if ($photo->create()) {
-                                echo "Photo record created successfully.";
-                            } else {
-                                echo "Failed to create record.";
-                            };
+                            // if ($photo->create()) {
+                            //     echo "Photo record created successfully.";
+                            // } else {
+                            //     echo "Failed to create record.";
+                            // };
 
                         
                         ?>
