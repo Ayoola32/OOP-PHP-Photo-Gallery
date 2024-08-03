@@ -32,8 +32,8 @@ class Photo extends Db_object {
         if (empty($file) || !$file || !is_array($file)) {
             $this->errors[] = "There was no file uploaded here";
             return false;
-        }elseif ($file['errors'] != 0 ) {
-            $this->error[] = $this->upload_error[$file['errors']];
+        }elseif ($file['error'] != 0 ) {
+            $this->errors[] = $this->upload_error[$file['error']];
             return false;
         }else{
             $this->filename = basename($file['name']);
