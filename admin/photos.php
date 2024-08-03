@@ -1,9 +1,6 @@
 <?php include "includes/header.php"; ?>
 <?php include "includes/navigation.php"; ?>
 
-<?php $photos = Photo::find_all();?>
-      
-
         <div id="page-wrapper">
 
             <div class="container-fluid">
@@ -23,49 +20,35 @@
                                 <i class="fa fa-file"></i> Blank Page
                             </li>
                         </ol>
-
-                        
-                        <div class="col-md-12">
-                            <table class="table table-bordered hovered table-hover table-striped">
-                                <thead>
-                                    <tr>
-                                        <th>Id</th>
-                                        <th>Photo</th>
-                                        <th>Title</th>
-                                        <th>Description</th>
-                                        <th>Filename</th>
-                                        <th>Type</th>
-                                        <th>Size</th>
-                                        <th>View</th>
-                                        <th>Edit</th>
-                                        <th>Delete</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach($photos as $photo) : ?>
-                                        <tr>
-                                            <td><?php echo $photo->photo_id?></td>
-                                            <td><img src="<?php echo $photo->picture_path(); ?>" alt="" style="width: 100px; height: auto;"></td>
-                                            <td><?php echo $photo->title?></td>
-                                            <td><?php echo $photo->description?></td>
-                                            <td><?php echo $photo->filename?></td>
-                                            <td><?php echo $photo->type?></td>
-                                            <td><?php echo $photo->size?></td>
-                                            <td><a class='btn btn-warning' href=''>View</a></td>
-                                            <td><a class='btn btn-info mr-2' href=''>Edit</a></td>
-                                            <td><a class='btn btn-danger' href='includes/photo_delete.php/?photo_id=<?php echo $photo->photo_id;?>'>Delete</a></td>
-                                        </tr>
-                                    <?php endforeach;?>
-                                </tbody>
-                            </table> 
-                        </div>
-
-
-
-
-
-
                     </div>
+
+                    <?php 
+                        // include "includes/post_view_all.php";
+                        if (isset($_GET['source'])) {
+                            $source = $_GET['source'];
+                        }else {
+                            $source = '';
+                        }
+
+                        switch ($source) {
+                            case 'photo_add':
+                                include "includes/photo_add.php"; // not yet
+                                break;
+
+                            case 'photo_update':
+                                include "includes/photo_update.php"; 
+                                break;
+
+                            case 'photo_delete':
+                                include "includes/photo_delete.php"; //done
+                                break;
+
+                            default:
+                                include "includes/photo_view_all.php"; // done
+                            break;
+                        }
+                    ?>          
+
                 </div>
                 <!-- /.row -->
 
