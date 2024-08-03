@@ -32,7 +32,7 @@
                             
 
                             // UPDATE USER STATICALLY;
-                            // $user = User::find_user_id(17);
+                            // $user = User::find_by_id(17);
                             // if ($user) {
                             //     $user->username = "Sidiiiiiiiq";
                             //     $user->last_name = "Abubaaaaaakar";
