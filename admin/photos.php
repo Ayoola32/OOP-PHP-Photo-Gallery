@@ -36,6 +36,7 @@
                                         <th>Filename</th>
                                         <th>Type</th>
                                         <th>Size</th>
+                                        <th>View</th>
                                         <th>Edit</th>
                                         <th>Delete</th>
                                     </tr>
@@ -50,8 +51,9 @@
                                             <td><?php echo $photo->filename?></td>
                                             <td><?php echo $photo->type?></td>
                                             <td><?php echo $photo->size?></td>
+                                            <td><a class='btn btn-warning' href=''>View</a></td>
                                             <td><a class='btn btn-info mr-2' href=''>Edit</a></td>
-                                            <td><a class='btn btn-danger' href=''>Delete</a></td>
+                                            <td><a class='btn btn-danger' href='includes/photo_delete.php/?photo_id=<?php echo $photo->photo_id;?>'>Delete</a></td>
                                         </tr>
                                     <?php endforeach;?>
                                 </tbody>
