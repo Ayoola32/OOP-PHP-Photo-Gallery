@@ -36,18 +36,22 @@
                                         <th>Filename</th>
                                         <th>Type</th>
                                         <th>Size</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php foreach($photos as $photo) : ?>
                                         <tr>
                                             <td><?php echo $photo->photo_id?></td>
-                                            <td><img src="http://placehold.it/62x62" alt=""></td>
+                                            <td><img src="<?php echo $photo->picture_path(); ?>" alt="" style="width: 100px; height: auto;"></td>
                                             <td><?php echo $photo->title?></td>
                                             <td><?php echo $photo->description?></td>
                                             <td><?php echo $photo->filename?></td>
                                             <td><?php echo $photo->type?></td>
                                             <td><?php echo $photo->size?></td>
+                                            <td><a class='btn btn-info mr-2' href=''>Edit</a></td>
+                                            <td><a class='btn btn-danger' href=''>Delete</a></td>
                                         </tr>
                                     <?php endforeach;?>
                                 </tbody>
