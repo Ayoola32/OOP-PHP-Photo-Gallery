@@ -1,20 +1,19 @@
 <?php
 
-class Db_object{
-    
-    // method to find all users
+class Db_object {
+
+    // method to find all records
     public static function find_all(){
 
         return static::find_query("SELECT * FROM " . static::$db_table);
     }
 
-
-    // method use to find a single user by its user_id
-    public static function find_user_id($user_id) {
-        $result = static::find_query("SELECT * FROM " . static::$db_table . " WHERE user_id = '{$user_id}' LIMIT 1");
-        return !empty($result) ? array_shift($result) : null;  // Ternary operator in replacement of if statement
-    } 
-
+    // method to find a single record by its id, where id column is dynamic
+    public static function find_by_id($id) {
+        $result_array = static::find_query("SELECT * FROM " . static::$db_table . " WHERE " . static::$db_id_field . " = '{$id}' LIMIT 1");
+        return !empty($result_array) ? array_shift($result_array) : null;
+    }
+    
 
     // method used when writing a query
     public static function find_query($sql){
@@ -145,7 +144,7 @@ class Db_object{
     public function delete(){
         global $database;
         $sql = "DELETE FROM " . static::$db_table . " ";
-        $sql .= "WHERE user_id = " . $database->escape_string($this->user_id);
+        $sql .= "WHERE " . static::$db_id_field . " = " . $database->escape_string($this->{static::$db_id_field});
         $sql .= " LIMIT 1";
         
         $database->query($sql);
