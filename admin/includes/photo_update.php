@@ -63,7 +63,7 @@ $message = "";
 
             <div class="form-group">
                 <label for="description">Photo Description</label>
-                <textarea class="form-control" name="description" col="30" rows="10"><?php echo $photo->description?></textarea>
+                <textarea id="summernote" class="form-control" name="description" col="30" rows="10"><?php echo $photo->description?></textarea>
             </div>
 
             <div class="form-group">
