@@ -19,8 +19,8 @@
                     <img src="<?php echo $user->image_path_placeholder(); ?>" alt="" style="width: 150px; height: auto;">
                     <div class="picture_link">
                         <a class='btn-warning' href=''>View</a>
-                        <a class='btn-info mr-2' href='users.php?source=user_update&photo_id=<?php echo $photo->photo_id;?>'>Edit</a>
-                        <a class='btn-danger' href='users.php/?source=user_delete&photo_id=<?php echo $photo->photo_id;?>'>Delete</a>
+                        <a class='btn-info mr-2' href='users.php?source=user_update&user_id=<?php echo $user->user_id;?>'>Edit</a>
+                        <a class='btn-danger' href='users.php?source=user_delete&user_id=<?php echo $user->user_id;?>'>Delete</a>
                     </div>
                 </td>
                 <td><?php echo $user->username?></td>
