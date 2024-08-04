@@ -94,6 +94,34 @@ class User extends Db_object {
         }
     }
 
+    // Method to save image wheen updating user
+    public function save_image() {
+        if (!empty($this->errors)) {
+            return false;
+        }
+    
+        if (empty($this->user_image) || empty($this->tmp_path)) {
+            $this->errors[] = "The file was not available";
+            return false;
+        }
+    
+        $target_path = SITE_ROOT . DS . 'admin' . DS . $this->upload_directory . DS . $this->user_image;
+        
+        if (file_exists($target_path)) {
+            $this->errors[] = "This User image file {$this->user_image} already exists";
+            return false;
+        }
+    
+        if (move_uploaded_file($this->tmp_path, $target_path)) {
+            unset($this->tmp_path);  // Remove the temporary path after a successful upload
+            return true;
+        } else {
+            $this->errors[] = "The file directory probably does not have permission";
+            return false;
+        }
+    }
+    
+
     // Method to check if a username or email exists
     public static function username_or_email_exists($username, $email) {
         global $database;
