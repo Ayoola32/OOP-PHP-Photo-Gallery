@@ -43,10 +43,10 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-user"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="users.php">All Users</a>
+                                <a href="users.php">View all Users</a>
                             </li>
                             <li>
-                                <a href="#">Add Users</a>
+                                <a href="users.php?source=user_add">Add Users</a>
                             </li>
                         </ul>
                     </li>
@@ -58,7 +58,7 @@
                                 <a href="photos.php">View all photos</a>
                             </li>
                             <li>
-                                <a href="photos.php?source=photo_add">Upload New Photos</a>
+                                <a href="photos.php?source=photo_add">Upload new photos</a>
                             </li>
                         </ul>
                     </li>
