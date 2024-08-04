@@ -32,11 +32,11 @@
 
                         switch ($source) {
                             case 'photo_add':
-                                include "includes/photo_add.php"; // not yet
+                                include "includes/photo_add.php"; // done
                                 break;
 
                             case 'photo_update':
-                                include "includes/photo_update.php"; 
+                                include "includes/photo_update.php"; // done
                                 break;
 
                             case 'photo_delete':
