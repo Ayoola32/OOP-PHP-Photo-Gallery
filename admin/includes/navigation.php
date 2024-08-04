@@ -43,18 +43,24 @@
                         <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-user"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="demo" class="collapse">
                             <li>
-                                <a href="users.php">View all Users</a>
+                                <a href="users.php">All Users</a>
                             </li>
                             <li>
                                 <a href="#">Add Users</a>
                             </li>
                         </ul>
                     </li>
-                    <li class="">
-                        <a href="upload.php"><i class="fa fa-fw fa-file"></i> Upload</a>
-                    </li>
-                    <li class="">
-                        <a href="photos.php"><i class="fa fa-fw fa-image"></i> Photos</a>
+
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#demo2"><i class="fa fa-fw fa-user"></i> Photos <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="demo2" class="collapse">
+                            <li>
+                                <a href="photos.php">View all photos</a>
+                            </li>
+                            <li>
+                                <a href="photos.php?source=photo_add">Upload New Photos</a>
+                            </li>
+                        </ul>
                     </li>
                     <li>
                         <a href="comments.php"><i class="fa fa-fw fa-dashboard"></i> Comments</a>
