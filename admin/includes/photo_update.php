@@ -80,19 +80,19 @@ $message = "";
             <div class="inside">
                 <div class="box-inner">
                     <h4 class="text">
-                        <span class="glyphicon glyphicon-calendar"></span> Uploaded on: April 22, 2030 @ 5:26
+                        <span class="glyphicon glyphicon-calendar"></span> Uploaded on: <?php echo $photo->date?>
                     </h4>
                     <h5 class="text ">
-                        Photo Id: <span class="data photo_id_box">34</span>
+                        Photo Id: <span class="data photo_id_box"><?php echo $photo->photo_id?></span>
                     </h5>
                     <h5 class="text">
-                        Filename: <span class="data">image.jpg</span>
+                        Filename: <span class="data"><?php echo $photo->filename?></span>
                     </h5>
                     <h5 class="text">
-                        File Type: <span class="data">JPG</span>
+                        File Type: <span class="data"><?php echo $photo->type?></span>
                     </h5>
                     <h5 class="text">
-                        File Size: <span class="data">3245345</span>
+                        File Size: <span class="data"><?php echo $photo->size?> kb</span>
                     </h5>
                 </div>
                 
