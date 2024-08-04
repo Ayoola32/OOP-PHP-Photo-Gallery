@@ -1,8 +1,9 @@
 <?php
 
 $message = "";
+$user = new User();
+
 if (isset($_POST["submit"])) {
-    $user = new User();
     $user->first_name = $_POST['firstname'];
     $user->last_name = $_POST['lastname'];
     $user->username = $_POST['username'];
@@ -43,22 +44,22 @@ if (isset($_POST["submit"])) {
         
     <div class="form-group">
         <label for="firstname">Firstname</label>
-        <input type="text" class="form-control" name="firstname">
+        <input type="text" class="form-control" name="firstname" value="<?php echo $user->first_name;?>">
     </div>
 
     <div class="form-group">
         <label for="lastname">Lastname</label>
-        <input type="text" class="form-control" name="lastname">
+        <input type="text" class="form-control" name="lastname" value="<?php echo $user->last_name;?>">
     </div>
 
     <div class="form-group">
         <label for="username">Username</label>
-        <input type="text" class="form-control" name="username">
+        <input type="text" class="form-control" name="username" value="<?php echo $user->username;?>">
     </div>
 
     <div class="form-group">
         <label for="email">Email</label>
-        <input type="email" class="form-control" name="email">
+        <input type="email" class="form-control" name="email" value="<?php echo $user->user_email;?>">
     </div>
 
     <div class="form-group">
