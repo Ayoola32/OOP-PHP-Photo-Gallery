@@ -12,7 +12,7 @@ if (empty($_GET['photo_id'])) {
             $photo->caption = $_POST['caption'];
             $photo->alternate_text = $_POST['alternate_text'];
             $photo->description = $_POST['description'];
-            $photo->set_file($_FILES['file_upload']);
+            // $photo->set_file($_FILES['file_upload']);
 
             if ($photo->save()) {
                 $message = "<p class='alert alert-success'>Photo updated successfully.</p>";
@@ -48,7 +48,11 @@ $message = "";
             </div>
 
             <div class="form-group">
-                <a class="thumbnail" href="#"><img src="<?php echo $photo->picture_path();?>" alt="" style="width: 300px; height: auto;"></a>
+                <a class="thumbnail" href="#">
+                    <img src="<?php echo $photo->picture_path();?>" alt="" style="width: 300px; height: auto;">
+                    <!-- <label for="file_upload">Change Photo (optional)</label>
+                    <input type="file" name="file_upload" value=""> -->
+                </a>
             </div>
             
             <div class="form-group">
@@ -64,11 +68,6 @@ $message = "";
             <div class="form-group">
                 <label for="description">Photo Description</label>
                 <textarea id="summernote" class="form-control" name="description" col="30" rows="10"><?php echo $photo->description?></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="file_upload">Change Photo (optional)</label>
-                <input type="file" name="file_upload" value="">
             </div>
     </div>
     
