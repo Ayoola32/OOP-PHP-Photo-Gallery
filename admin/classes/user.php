@@ -2,7 +2,7 @@
 
 class User extends Db_object {
     protected static $db_table = "users";
-    protected static $db_table_field = array('username', 'password', 'first_name', 'last_name', 'user_email');
+    protected static $db_table_field = array('username', 'password', 'first_name', 'last_name', 'user_email', 'user_image');
     protected static $db_id_field = "user_id"; // Specify the id field for the User class
 
     public $user_id;
@@ -11,6 +11,17 @@ class User extends Db_object {
     public $first_name;
     public $last_name;
     public $user_email;
+    public $user_image;
+
+    public $upload_directory = "images";
+    public $image_placeholder = "https://placehold.it/400x400&text=User image";
+    public $tmp_path;
+
+    public function image_path_placeholder(){
+        return empty($this->user_image) ? $this->image_placeholder : $this->upload_directory . DS . $this->user_image;
+    }
+    
+
 
 
 
