@@ -57,10 +57,20 @@ if (isset($_POST["submit"])) {
                                     <label for="title">Photo Title</label>
                                     <input type="text" class="form-control" name="title">
                                 </div>
+                                
+                                <div class="form-group">
+                                    <label for="caption">Photo Caption</label>
+                                    <input type="text" class="form-control" name="caption">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="alternate_text">Alternate Text</label>
+                                    <input type="text" class="form-control" name="alternate_text">
+                                </div>
 
                                 <div class="form-group">
                                     <label for="description">Photo Description</label>
-                                    <input type="text" class="form-control" name="description">
+                                    <textarea class="form-control" name="description" col="30" rows="10"></textarea>
                                 </div>
                                 
                                 <div class="form-group">
