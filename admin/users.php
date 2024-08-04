@@ -1,7 +1,7 @@
 <?php include "includes/header.php"; ?>
 <?php include "includes/navigation.php"; ?>
 
-      
+
 
         <div id="page-wrapper">
 
@@ -23,6 +23,33 @@
                             </li>
                         </ol>
                     </div>
+
+                    <?php 
+                        if (isset($_GET['source'])) {
+                            $source = $_GET['source'];
+                        }else {
+                            $source = '';
+                        }
+
+                        switch ($source) {
+                            case 'user_add':
+                                include "includes/user_add.php"; // 
+                                break;
+
+                            case 'user_update':
+                                include "includes/user_update.php"; // 
+                                break;
+
+                            case 'user_delete':
+                                include "includes/user_delete.php"; //
+                                break;
+
+                            default:
+                                include "includes/user_view_all.php"; // 
+                            break;
+                        }
+                    ?>          
+
                 </div>
                 <!-- /.row -->
 
