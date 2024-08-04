@@ -1,7 +1,33 @@
 <?php
-if (isset($_POST['update'])) {
 
+
+if (empty($_GET['photo_id'])) {
+    redirect("../admin/photos.php");
+}else {
+    $photo = Photo::find_by_id($_GET['photo_id']);
+
+    if (isset($_POST['update'])) {
+        if ($photo) {
+            $photo->title = $_POST['title'];
+            $photo->caption = $_POST['caption'];
+            $photo->alternate_text = $_POST['alternate_text'];
+            $photo->description = $_POST['description'];
+            $photo->set_file($_FILES['file_upload']);
+
+            if ($photo->save()) {
+                $message = "<p class='alert alert-success'>Photo updated successfully.</p>";
+            }else{
+                $message = join("<br>", $photo->errors);
+            }
+        } else {
+            $message = "<p class='alert alert-danger'>Error updating photo.</p>";
+        }
+    }
 }
+$message = "";
+
+
+
 
 
 
@@ -14,30 +40,35 @@ if (isset($_POST['update'])) {
 <!-- Update Photo Form -->
 <form action="" method="post" enctype="multipart/form-data">
     <div class="col-md-7">
+        <?php echo $message?>
         <h2>Update Photo</h2>
             <div class="form-group">
                 <label for="title">Photo Title</label>
-                <input type="text" class="form-control" name="title" value="" >
+                <input type="text" class="form-control" name="title" value="<?php echo $photo->title?>" >
+            </div>
+
+            <div class="form-group">
+                <a class="thumbnail" href="#"><img src="<?php echo $photo->picture_path();?>" alt="" style="width: 300px; height: auto;"></a>
             </div>
             
             <div class="form-group">
                 <label for="caption">Caption</label>
-                <input type="text" class="form-control" name="caption" value="" >
+                <input type="text" class="form-control" name="caption" value="<?php echo $photo->caption?>" >
             </div>
             
             <div class="form-group">
                 <label for="alternate_text">Alternate Text</label>
-                <input type="text" class="form-control" name="alternate_text" value="" >
+                <input type="text" class="form-control" name="alternate_text" value="<?php echo $photo->alternate_text?>" >
             </div>
 
             <div class="form-group">
                 <label for="description">Photo Description</label>
-                <textarea class="form-control" name="description" col="30" rows="10" ></textarea>
+                <textarea class="form-control" name="description" col="30" rows="10"><?php echo $photo->description?></textarea>
             </div>
 
             <div class="form-group">
                 <label for="file_upload">Change Photo (optional)</label>
-                <input type="file" name="file_upload">
+                <input type="file" name="file_upload" value="">
             </div>
     </div>
     
@@ -68,7 +99,7 @@ if (isset($_POST['update'])) {
                 
                 <div class="info-box-footer clearfix">
                     <div class="info-box-delete pull-left">
-                        <a href="photos.php/?source=photo_delete&photo_id=<?php //echo $photo->id; ?>" class="btn btn-danger btn-lg ">Delete</a>   
+                        <a href="photos.php/?source=photo_delete&photo_id=<?php echo $photo->photo_id; ?>" class="btn btn-danger btn-lg ">Delete</a>   
                     </div>
                     
                     <div class="info-box-update pull-right ">
