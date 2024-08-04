@@ -125,12 +125,7 @@ class Db_object {
 
         $sql  = "UPDATE " . static::$db_table . " SET ";
         $sql .= implode(", ", $properties_pairs);
-        // $sql .= "username= '" . $database->escape_string($this->username) . "', ";
-        // $sql .= "password= '" . $database->escape_string($this->password) . "', ";
-        // $sql .= "first_name= '" . $database->escape_string($this->first_name) . "', ";
-        // $sql .= "last_name= '" . $database->escape_string($this->last_name) . "', ";
-        // $sql .= "user_email= '" . $database->escape_string($this->user_email) . "' ";
-        $sql .= " WHERE user_id = " . $database->escape_string($this->user_id);
+        $sql .= " WHERE " . static::$db_id_field . " = " . $database->escape_string($this->{static::$db_id_field});
 
         $database->query($sql);
         return (mysqli_affected_rows($database->connection) == 1) ? true : false;
