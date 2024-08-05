@@ -9,7 +9,7 @@ if (empty($_GET['user_id'])) {
 
 $user = User::find_by_id($_GET['user_id']);
 if ($user) {
-    $user->delete();  
+    $user->delete_user();  
     header("Location: ../admin/users.php"); 
     exit();
 } else {
