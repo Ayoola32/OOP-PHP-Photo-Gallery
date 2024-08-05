@@ -147,6 +147,30 @@ class User extends Db_object {
         }
         return false;
     }
+
+
+
+    public function picture_path(){
+        return $this->upload_directory . DS . $this->user_image;
+    }
+
+
+
+    // method to call delete method and also delete image in the directory
+    public function delete_user(){
+        $target_path = SITE_ROOT . DS . 'admin' . DS . $this->picture_path();
+
+        if(file_exists($target_path)) {
+            if(unlink($target_path)) {
+                return $this->delete();
+            } else {
+                return false;
+            }
+        } else {
+            return $this->delete();
+        }
+    }
+
     
 }
 
