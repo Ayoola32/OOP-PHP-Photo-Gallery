@@ -14,9 +14,9 @@ if (isset($_POST["submit"])) {
 
 
     if ($photo->save()) {
-        $message = "Photo Upload Successfully";
+        $message = "<p class='alert alert-success'>Photo Upload Successfully.</p>";
     }else{
-        $message = join("<br>", $photo->errors);
+        $message ="<p class='alert alert-danger'>Failed to Upload.  " . join("<br>", $photo->errors). "</p>";
     }
 
 }
