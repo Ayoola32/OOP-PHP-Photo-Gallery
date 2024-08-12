@@ -35,22 +35,22 @@ if (isset($_POST["submit"])) {
         
         <div class="form-group">
             <label for="title">Photo Title</label>
-            <input type="text" class="form-control" name="title">
+            <input type="text" class="form-control" name="title" value="<?php echo isset($photo->title) ? $photo->title : ''; ?>">
         </div>
         
         <div class="form-group">
             <label for="caption">Photo Caption</label>
-            <input type="text" class="form-control" name="caption">
+            <input type="text" class="form-control" name="caption" value="<?php echo isset($photo->caption) ? $photo->caption : ''; ?>">
         </div>
         
         <div class="form-group">
             <label for="alternate_text">Alternate Text</label>
-            <input type="text" class="form-control" name="alternate_text">
+            <input type="text" class="form-control" name="alternate_text" value="<?php echo isset($photo->alternate_text) ? $photo->alternate_text : ''; ?>">
         </div>
 
         <div class="form-group">
             <label for="description">Photo Description</label>
-            <textarea class="form-control" name="description" col="30" rows="10"></textarea>
+            <textarea class="form-control" name="description" col="30" rows="10"><?php echo isset($photo->description) ? $photo->description : ''; ?></textarea>
         </div>
         
         <div class="form-group">
