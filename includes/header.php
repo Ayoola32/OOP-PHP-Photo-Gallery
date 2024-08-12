@@ -1,5 +1,5 @@
 <?php ob_start();?>
-<?php include "admin/classes/init.php";?>
+<?php require_once "admin/classes/init.php";?>
 
 <!DOCTYPE html>
 <html lang="en">
