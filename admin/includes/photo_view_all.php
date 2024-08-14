@@ -8,8 +8,7 @@
             <th>Title</th>
             <th>Filename</th>
             <th>Size</th>
-            <!-- <th>Description</th> -->
-            <!-- <th>Type</th> -->
+            <th>Comments</th>
         </tr>
     </thead>
     <tbody>
@@ -18,7 +17,7 @@
                 <td>
                     <img src="<?php echo $photo->picture_path(); ?>" alt="" style="width: 200px; height: auto;">
                     <div class="picture_link">
-                        <a class='btn-warning' href=''>View</a>
+                        <a class='btn-warning' href='../post_view.php?photo_id=<?php echo $photo->photo_id?>'>View</a>
                         <a class='btn-info mr-2' href='photos.php?source=photo_update&photo_id=<?php echo $photo->photo_id;?>'>Edit</a>
                         <a class='btn-danger' href='photos.php/?source=photo_delete&photo_id=<?php echo $photo->photo_id;?>'>Delete</a>
                     </div>
@@ -27,8 +26,7 @@
                 <td><?php echo $photo->title?></td>
                 <td><?php echo $photo->filename?></td>
                 <td><?php echo $photo->size?></td>
-                <td><?php //echo $photo->description?></td>
-                <td><?php //echo $photo->type?></td>
+                <td><a href="photos.php?source=photo_comment&photo_id=<?php echo $photo->photo_id ?>">View all comments</a></td>
             </tr>
         <?php endforeach;?>
     </tbody>
