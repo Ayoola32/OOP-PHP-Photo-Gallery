@@ -26,7 +26,22 @@
 
 
                     <?php 
-                        include "includes/comment_view_all.php";
+                        // include "includes/post_view_all.php";
+                        if (isset($_GET['source'])) {
+                            $source = $_GET['source'];
+                        }else {
+                            $source = '';
+                        }
+    
+                        switch ($source) {
+                            case 'comment_delete':
+                                include "includes/comment_delete.php"; 
+                                break;
+                            
+                            default:
+                                include "includes/comment_view_all.php";
+                            break;
+                        }
                     ?>
                 </div>
                 <!-- /.row -->
