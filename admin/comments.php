@@ -19,10 +19,15 @@
                                 <i class="fa fa-dashboard"></i>  <a href="index.php">Dashboard</a>
                             </li>
                             <li class="active">
-                                <i class="fa fa-file"></i> Blank Page
+                                <i class="fa fa-file"></i> Comments Page
                             </li>
                         </ol>
                     </div>
+
+
+                    <?php 
+                        include "includes/comment_view_all.php";
+                    ?>
                 </div>
                 <!-- /.row -->
 
