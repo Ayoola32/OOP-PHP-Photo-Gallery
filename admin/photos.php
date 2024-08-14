@@ -43,6 +43,10 @@
                                 include "includes/photo_delete.php"; //done
                                 break;
 
+                            case 'photo_comment':
+                                include "includes/photo_comment.php"; //done
+                                break;
+
                             default:
                                 include "includes/photo_view_all.php"; // done
                             break;
