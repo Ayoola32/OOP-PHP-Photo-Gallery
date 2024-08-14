@@ -5,7 +5,7 @@ class Db_object {
     // method to find all records
     public static function find_all(){
 
-        return static::find_query("SELECT * FROM " . static::$db_table);
+        return static::find_query("SELECT * FROM " . static::$db_table . " ORDER BY " . static::$db_id_field . " DESC");
     }
 
     // method to find a single record by its id, where id column is dynamic
