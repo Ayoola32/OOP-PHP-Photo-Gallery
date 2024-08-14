@@ -31,7 +31,7 @@ class Comment extends Db_object {
 
         $sql = "SELECT * FROM " . self::$db_table;
         $sql .= " WHERE photo_id = " . $database->escape_string($photo_id);
-        $sql .= " ORDER BY photo_id ASC";
+        $sql .= " ORDER BY comment_id DESC";
 
         return self::find_query($sql);
     }
