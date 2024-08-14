@@ -79,6 +79,7 @@ $comments = Comment::find_the_comments($photo->photo_id);
                 <!-- Blog Comments -->
 
                 <!-- Comments Form -->
+                <?php if ($session->is_signed_in()): ?>
                 <div class="well">
                     <h4>Leave a Comment:</h4>
                     <form role="form" method="post">
@@ -97,8 +98,6 @@ $comments = Comment::find_the_comments($photo->photo_id);
                 <hr>
 
                 <!-- Posted Comments -->
-
-                <!-- Comment -->
                 <?php foreach ($comments as $comment): ?>
 
                     <div class="media">
@@ -106,16 +105,18 @@ $comments = Comment::find_the_comments($photo->photo_id);
                             <img class="media-object" src="http://placehold.it/64x64" alt="">
                         </a>
                         <div class="media-body">
-                            <h4 class="media-heading"><?php echo $comment->author?>
-                                <small><?php echo $comment->date?></small>
+                            <h4 class="media-heading"><?php echo $comment->author; ?>
                                 <small><?php echo date('F d, Y \a\t g:i A', strtotime($comment->date)); ?></small>
-                                <!-- <small>August 25, 2014 at 9:30 PM</small> -->
                             </h4>
-                            <?php echo $comment->content?>
+                            <?php echo $comment->content; ?>
                         </div>
                     </div>
-
                 <?php endforeach; ?>
+            <?php else: ?>
+                <p class='alert alert-info'>You must be signed in to view or leave comments.</p>
+            <?php endif; ?>
+
+
 
 
 
