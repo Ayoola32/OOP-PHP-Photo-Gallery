@@ -20,7 +20,7 @@
                 <td>
                     <div class="picture_link">
                         <a class='btn-warning' href=''>View</a>
-                        <a class='btn-danger' href='comments.php?source=comment_delete&comment_id=<?php echo $comment->user_id;?>'>Delete</a>
+                        <a class='btn-danger' href='comments.php?source=comment_delete&comment_id=<?php echo $comment->comment_id;?>'>Delete</a>
                     </div>
                 </td>
             </tr>
