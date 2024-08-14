@@ -10,7 +10,7 @@ if (empty($_GET['comment_id'])) {
 $comment = Comment::find_by_id($_GET['comment_id']);
 if ($comment) {
     $comment->delete();  
-    header("Location: ../admin/comments.php"); 
+    header("Location: ../admin/photos.php?source=photo_comment&photo_id=$comment->photo_id"); 
     exit();
 } else {
     header("Location: ../admin/comments.php"); 
