@@ -22,7 +22,7 @@
                 <td>
                     <div class="picture_link">
                     <!-- <a class='btn-warning' href='../post_view.php?photo_id=<?php //echo $comment->photo_id?>'>View</a> -->
-                    <a class='btn-danger' href='comments.php?source=comment_delete&comment_id=<?php echo $comment->comment_id;?>'>Delete</a>
+                    <a class='btn btn-danger' href='comments.php?source=comment_delete&comment_id=<?php echo $comment->comment_id;?>'>Delete</a>
                     </div>
                 </td>
             </tr>

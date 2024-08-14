@@ -29,7 +29,7 @@ $comments = Comment::find_the_comments($_GET['photo_id']);
                 <td><?php echo date('F d, Y \a\t g:i A', strtotime($comment->date));?></td>
                 <td>
                     <div class="picture_link">
-                        <a class='btn-danger' href='comments.php?source=comment_delete&comment_id=<?php echo $comment->comment_id;?>'>Delete</a>
+                        <a class='btn btn-danger' href='comments.php?source=comment_delete&comment_id=<?php echo $comment->comment_id;?>&photo_id=<?php echo $comment->photo_id?>'>Delete</a>
                     </div>
                 </td>
             </tr>
