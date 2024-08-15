@@ -35,11 +35,11 @@
                                             </div>
                                             <div class="col-xs-9 text-right">
                                                 <div class="huge">4</div>
-                                                <div>New Views</div>
+                                                <div>Users</div>
                                             </div>
                                         </div>
                                     </div>
-                                    <a href="#">
+                                    <a href="users.php">
                                         <div class="panel-footer">
                                             <span class="pull-left">View Details</span> 
                                             <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span> 
