@@ -1,5 +1,5 @@
-<?php include "includes/header.php"; ?>
-<?php include "includes/navigation.php"; ?>
+<?php include "includes/admin_header.php"; ?>
+<?php include "includes/admin_navigation.php"; ?>
 
       
 
@@ -133,4 +133,4 @@
         </div>
         <!-- /#page-wrapper -->
 
-  <?php include "includes/footer.php"; ?>
+  <?php include "includes/admin_footer.php"; ?>
