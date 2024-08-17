@@ -42,7 +42,8 @@ if (empty($_GET['user_id'])) {
 }
 ?>
 
-<div class="col-md-4">
+
+<div class="col-md-6">
     <?php echo $message; ?>
     <form action="" method="post" enctype="multipart/form-data">
         <h2>Update User</h2>
@@ -51,35 +52,38 @@ if (empty($_GET['user_id'])) {
             <label for="firstname">Firstname</label>
             <input type="text" class="form-control" name="firstname" value="<?php echo $user->first_name; ?>">
         </div>
-
+        
         <div class="form-group">
             <label for="lastname">Lastname</label>
             <input type="text" class="form-control" name="lastname" value="<?php echo $user->last_name; ?>">
         </div>
-
+        
         <div class="form-group">
             <label for="username">Username</label>
             <input type="text" class="form-control" name="username" value="<?php echo $user->username; ?>">
         </div>
-
+        
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" class="form-control" name="email" value="<?php echo $user->user_email; ?>">
         </div>
-
+        
         <div class="form-group">
             <label for="password">Password</label>
             <input type="password" class="form-control" name="password" value="<?php echo $user->password; ?>">
         </div>
-
-        <div class="form-group">
-            <label for="user_image">User Image</label><br>
-            <img width="200" src="../admin/images/<?php echo $user->user_image ?>" alt="User_image">
-            <input type="file" name="user_image">
-        </div>
-
+        
+        
         <div class="form-group">
             <input class="btn btn-primary" type="submit" name="update" value="Update User">
         </div>
     </form>
 </div>
+
+<div class="col-md-6">
+    <a href="#" data-toggle="modal" data-target="#photo_library"><img width="650" src="../admin/images/<?php echo $user->user_image ?>" alt="User_image"></a>
+</div>
+
+
+
+<?php include "user_photo_library_modal.php"?>
