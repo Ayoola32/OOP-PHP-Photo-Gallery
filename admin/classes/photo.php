@@ -106,6 +106,7 @@ class Photo extends Db_object {
 
     public static function find_by_pagination($limit, $offset) {
         $sql = "SELECT * FROM " . self::$db_table;
+        $sql .= " ORDER BY " . self::$db_id_field . " DESC ";
         $sql .= " LIMIT {$limit} OFFSET {$offset}";
         return self::find_query($sql);
     }
