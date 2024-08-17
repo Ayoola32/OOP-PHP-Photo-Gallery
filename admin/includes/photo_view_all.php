@@ -6,6 +6,7 @@
             <th>Photo</th>
             <th>Id</th>
             <th>Title</th>
+            <th>Author</th>
             <th>Filename</th>
             <th>Size</th>
             <th>Comments</th>
@@ -25,6 +26,7 @@
                 </td>
                 <td><?php echo $photo->photo_id?></td>
                 <td><?php echo $photo->title?></td>
+                <td><?php echo $photo->author?></td>
                 <td><?php echo $photo->filename?></td>
                 <td><?php echo $photo->size?></td>
                 <td><a class='btn btn-warning' href="photos.php?source=photo_comment&photo_id=<?php echo $photo->photo_id ?>"><?php echo count($comments)?> comments</a></td>

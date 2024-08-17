@@ -9,6 +9,7 @@ if (empty($_GET['photo_id'])) {
     if (isset($_POST['update'])) {
         if ($photo) {
             $photo->title = $_POST['title'];
+            $photo->author = $_POST['author'];
             $photo->caption = $_POST['caption'];
             $photo->alternate_text = $_POST['alternate_text'];
             $photo->description = $_POST['description'];
@@ -56,6 +57,11 @@ $message = "";
             </div>
             
             <div class="form-group">
+                <label for="author">Author</label>
+                <input type="text" class="form-control" name="author" value="<?php echo $photo->author?>" >
+            </div>
+
+            <div class="form-group">
                 <label for="caption">Caption</label>
                 <input type="text" class="form-control" name="caption" value="<?php echo $photo->caption?>" >
             </div>
@@ -80,13 +86,16 @@ $message = "";
             <div class="inside">
                 <div class="box-inner">
                     <h4 class="text">
-                        <span class="glyphicon glyphicon-calendar"></span> Uploaded on: <?php echo $photo->date?>
+                        <span class="glyphicon glyphicon-calendar"></span> Uploaded on: <?php echo date('F d, Y \a\t g:i A', strtotime($photo->date));?>
                     </h4>
                     <h5 class="text ">
                         Photo Id: <span class="data photo_id_box"><?php echo $photo->photo_id?></span>
                     </h5>
                     <h5 class="text">
                         Filename: <span class="data"><?php echo $photo->filename?></span>
+                    </h5>
+                    <h5 class="text">
+                        Author: <span class="data"><?php echo $photo->author?></span>
                     </h5>
                     <h5 class="text">
                         File Type: <span class="data"><?php echo $photo->type?></span>

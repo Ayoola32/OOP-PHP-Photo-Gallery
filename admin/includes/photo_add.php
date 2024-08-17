@@ -5,6 +5,7 @@ $message = "";
 if (isset($_POST["submit"])) {
     $photo = new Photo();
     $photo->title = $_POST['title'];
+    $photo->author = $_POST['author'];
     $photo->caption = $_POST['caption'];
     $photo->alternate_text = $_POST['alternate_text'];
     $photo->description = $_POST['description'];
@@ -36,6 +37,11 @@ if (isset($_POST["submit"])) {
         <div class="form-group">
             <label for="title">Photo Title</label>
             <input type="text" class="form-control" name="title" value="<?php echo isset($photo->title) ? $photo->title : ''; ?>">
+        </div>
+
+        <div class="form-group">
+            <label for="author">Author </label>
+            <input type="text" class="form-control" name="author" value="<?php echo isset($photo->author) ? $photo->author : ''; ?>">
         </div>
         
         <div class="form-group">
