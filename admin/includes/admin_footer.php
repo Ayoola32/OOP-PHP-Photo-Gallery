@@ -22,15 +22,16 @@
 
         var data = google.visualization.arrayToDataTable([
           ['Task', 'Hours per Day'],
-          ['Work',     11],
-          ['Eat',      2],
-          ['Commute',  2],
-          ['Watch TV', 2],
-          ['Sleep',    7]
+          // ['Clicks',    <?php //echo $session->count;?>],
+          ['Comments',    <?php echo Comment::count_all();?>],
+          ['Users',     <?php echo User::count_all();?>],
+          ['Photos',    <?php echo Photo::count_all();?>]
         ]);
 
         var options = {
-          title: 'My Daily Activities'
+          // pieSliceText: 'label',
+          backgroundColor: 'transparent',
+          title: 'Photo Gallery Data'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
