@@ -104,6 +104,12 @@ class Photo extends Db_object {
         }
     }
 
+    public static function find_by_pagination($limit, $offset) {
+        $sql = "SELECT * FROM " . self::$db_table;
+        $sql .= " LIMIT {$limit} OFFSET {$offset}";
+        return self::find_query($sql);
+    }
+
 
 
 
