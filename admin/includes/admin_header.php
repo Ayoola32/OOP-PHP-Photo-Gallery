@@ -52,6 +52,9 @@ if (!$session->is_signed_in()) {
 
     <!--CSS -->
     <link href="css/styles.css" rel="stylesheet">
+
+    <!-- Chart -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 
 <body>
