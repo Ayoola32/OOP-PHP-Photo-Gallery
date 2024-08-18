@@ -77,8 +77,12 @@ if (empty($_GET['user_id'])) {
         <div class="form-group">
             <input type="file" name="user_image">
         </div>
+
+        <div class="info-box-delete pull-left">
+            <a href="users.php?source=user_delete&user_id=<?php echo $user->user_id; ?>" class="btn btn-danger">Delete</a>   
+        </div>
         
-        <div class="form-group">
+        <div class="form-group pull-right">
             <input class="btn btn-primary" type="submit" name="update" value="Update User">
         </div>
     </form>

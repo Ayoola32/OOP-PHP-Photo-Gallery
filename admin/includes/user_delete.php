@@ -10,10 +10,10 @@ if (empty($_GET['user_id'])) {
 $user = User::find_by_id($_GET['user_id']);
 if ($user) {
     $user->delete_user();  
-    header("Location: ../admin/users.php"); 
+    header("Location: ./users.php"); 
     exit();
 } else {
-    header("Location: ../admin/users.php"); 
+    header("Location: ./users.php"); 
     exit();
 }
 
