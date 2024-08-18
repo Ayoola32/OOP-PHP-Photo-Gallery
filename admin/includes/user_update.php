@@ -79,7 +79,7 @@ if (empty($_GET['user_id'])) {
         </div>
 
         <div class="info-box-delete pull-left">
-            <a href="users.php?source=user_delete&user_id=<?php echo $user->user_id; ?>" class="btn btn-danger">Delete</a>   
+            <a id="user_id" href="users.php?source=user_delete&user_id=<?php echo $user->user_id; ?>" class="btn btn-danger">Delete</a>   
         </div>
         
         <div class="form-group pull-right">
