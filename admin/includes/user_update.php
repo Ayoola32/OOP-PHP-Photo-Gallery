@@ -23,7 +23,7 @@ if (empty($_GET['user_id'])) {
                     $message = "<p class='alert alert-danger'>Username or Email has already been taken by another user.</p>";
                 } else {
                     // Handle image upload if a new one is provided
-                    if ($_FILES['user_image']['error'] == UPLOAD_ERR_OK) {
+                    if (isset($_FILES['user_image']) && $_FILES['user_image']['error'] == UPLOAD_ERR_OK) {
                         $user->set_file($_FILES['user_image']);
                         if (!$user->save_image()) { // Save the new image
                             $message = "<p class='alert alert-danger'>Failed to upload new image. " . implode("<br>", $user->errors) . "</p>";
@@ -75,6 +75,10 @@ if (empty($_GET['user_id'])) {
         
         
         <div class="form-group">
+            <input type="file" name="user_image">
+        </div>
+        
+        <div class="form-group">
             <input class="btn btn-primary" type="submit" name="update" value="Update User">
         </div>
     </form>
@@ -84,6 +88,4 @@ if (empty($_GET['user_id'])) {
     <a href="#" data-toggle="modal" data-target="#photo_library"><img width="650" src="../admin/images/<?php echo $user->user_image ?>" alt="User_image"></a>
 </div>
 
-
-
-<?php include "user_photo_library_modal.php"?>
+<?php include "user_photo_library_modal.php" ?>
