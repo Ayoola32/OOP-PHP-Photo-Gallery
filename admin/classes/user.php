@@ -106,20 +106,27 @@ class User extends Db_object {
         }
     
         $target_path = SITE_ROOT . DS . 'admin' . DS . $this->upload_directory . DS . $this->user_image;
-        
+    
+        // Check if the target path is correct
+        if (!file_exists(dirname($target_path))) {
+            $this->errors[] = "Directory does not exist: " . dirname($target_path);
+            return false;
+        }
+    
         if (file_exists($target_path)) {
             $this->errors[] = "This User image file {$this->user_image} already exists";
             return false;
         }
     
         if (move_uploaded_file($this->tmp_path, $target_path)) {
-            unset($this->tmp_path);  // Remove the temporary path after a successful upload
+            unset($this->tmp_path);
             return true;
         } else {
             $this->errors[] = "The file directory probably does not have permission";
             return false;
         }
     }
+    
     
 
     // Method to check if a username or email exists
@@ -170,6 +177,20 @@ class User extends Db_object {
             return $this->delete();
         }
     }
+
+
+    // Ajax method To handle unser_image update
+    public function update_user_image() {
+        global $database;
+        
+        $sql  = "UPDATE " . static::$db_table . " SET ";
+        $sql .= "user_image = '" . $database->escape_string($this->user_image) . "' ";
+        $sql .= "WHERE " . static::$db_id_field . " = " . $database->escape_string($this->user_id);
+        
+        $database->query($sql);
+        return (mysqli_affected_rows($database->connection) == 1) ? true : false;
+    }
+    
 
     
 }
