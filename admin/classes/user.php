@@ -190,6 +190,18 @@ class User extends Db_object {
         $database->query($sql);
         return (mysqli_affected_rows($database->connection) == 1) ? true : false;
     }
+
+
+    // Display sidebar data of selected photo
+    public static function display_sidebar_data($user_id){
+        $user = self::find_by_id($user_id);
+
+        $output = "<p>{$user->user_image}</p>";
+
+        echo $output;
+
+
+    }
     
 
     
