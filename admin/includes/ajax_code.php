@@ -13,7 +13,20 @@ if (isset($_POST['image_name']) && isset($_POST['user_id'])) {
     } else {
         echo "User not found.";
     }
-} else {
-    echo "Invalid input.";
 }
+
+
+if (isset($_POST['photo_id'])) { 
+    $user = User::find_by_id($_POST['photo_id']);
+
+    $user->display_sidebar_data($_POST['photo_id']);
+
+
+
+
+
+}
+
+
+
 ?>
