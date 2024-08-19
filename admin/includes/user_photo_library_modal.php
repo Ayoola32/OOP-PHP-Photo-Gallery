@@ -1,7 +1,7 @@
 <?php require_once "./classes/init.php";?>
 
 <?php
-$photos = Photo::find_all();
+$photos = User::find_all();
 
 ?>
 
@@ -24,7 +24,7 @@ $photos = Photo::find_all();
             
             <div class="col-xs-2">
               <a role="checkbox" aria-checked="false" tabindex="0" id="" href="#" class="thumbnail">
-                <img class="modal_thumbnails img-responsive" src="<?php echo $photo->picture_path();?>" data="<!-- PHP LOOP HERE CODE HERE-->">
+                <img class="modal_thumbnails img-responsive" src="<?php echo $photo->picture_path();?>" data="<?php echo $photo->user_id?>">
               </a>
               <div class="photo-id hidden">
                 
