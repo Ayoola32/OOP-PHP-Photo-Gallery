@@ -46,7 +46,7 @@ $photos = Photo::find_by_pagination($items_per_page, $paginator->offset());
             <!-- Pager -->
              <ul class="pager">
                 <?php
-                    // Show previous button if not on the first page
+                    // Show previous button if not on the first page.
                     if ($paginator->has_previous()) {
                         echo "<li><a href='index.php?page=" . $paginator->previous() . "'>&laquo; Previous</a></li>";
                     }
